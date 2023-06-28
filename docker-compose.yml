@@ -1,0 +1,17 @@
+services:
+    mariadb:
+        container_name: manatee_db
+        image: mariadb:11.0-jammy
+        environment:
+            - MYSQL_DATABASE=${DATABASE_NAME}
+            - MYSQL_USER=${DATABASE_USER}
+            - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
+        ports:
+            - ${DATABASE_PORT}:3306
+        volumes:
+            - mariadb_volume:/var/lib/mysql/
+        restart: always
+
+volumes:
+    mariadb_volume:
