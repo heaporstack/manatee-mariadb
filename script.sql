@@ -8,6 +8,6 @@ CREATE TABLE subscription (
 );
 
 INSERT INTO subscription(name, description, phone_number, is_active) VALUES
-('Communauté des terres de Camargues - Provence-Alpes-Côtes d''Azur - Nos régions ont du talent', 'L''abonnement', '+33 662 379 711', TRUE),
-('Aigues Mortes', 'Aigues Mortes client de Engenys abonnésà R-Access', '+33 662 379 712', TRUE)
+('Communauté des terres de Camargues - Provence-Alpes-Côtes d''Azur - Nos régions ont du talent', 'L''abonnement', '+33 772 379 676', TRUE),
+('Aigues Mortes', 'Aigues Mortes client', '+33 673 689 112', TRUE)
 ;

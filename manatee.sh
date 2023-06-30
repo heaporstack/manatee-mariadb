@@ -6,13 +6,13 @@ env_file=".env"
     docker compose --env-file .env up --build -d
     # while the docker container is not ready, we loop 🐋
     while true; do
-        if docker exec manatee_db mariadb --user="$DATABASE_USER" --password="$DATABASE_PASSWORD" -e "SELECT 1" >/dev/null 2>&1; then
+        if docker exec manatee_db mariadb --user="$DATABASE_USER" --password="$DATABASE_PASSWORD" --execute "SELECT 1" >/dev/null 2>&1; then
             break
         fi
         sleep 0.5
     done
     # once the docker container is ready, we can play 🎮 !
-    docker exec -it manatee_db mariadb --user="$DATABASE_USER" --password="$DATABASE_PASSWORD" --database="$DATABASE_NAME"
+    docker exec -it manatee_db mariadb --user="$DATABASE_USER" --password="$DATABASE_PASSWORD" --database="$DATABASE_NAME" --silent
     # auto closes the docker container on exit
     docker compose down
 )
